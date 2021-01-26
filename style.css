@@ -20,6 +20,14 @@ body {
   margin: auto;
 }
 
+h2 {
+  margin-top: 3.2rem;
+  margin-bottom: 0.8rem;
+  color: #364F5F;
+
+  font-weight: normal;
+}
+
 header {
   background: #2D4A22;
   padding: 2rem 0 10rem;
@@ -30,6 +38,17 @@ header {
   color: #FFF;
   font-weight: 200;
 }
+
+#balance {
+  margin-top: -8rem;
+}
+
+#balance h2 {
+  color: #FFF;
+  margin-top: 0;
+}
+
+
 
 footer {
   text-align: center;
