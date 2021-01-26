@@ -1,3 +1,7 @@
+:root {
+  --dark-blue: #363F5F;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -23,7 +27,7 @@ body {
 h2 {
   margin-top: 3.2rem;
   margin-bottom: 0.8rem;
-  color: #364F5F;
+  color: var(--dark-blue);
 
   font-weight: normal;
 }
@@ -48,7 +52,35 @@ header {
   margin-top: 0;
 }
 
+.card {
+  background: #FFF;
+  padding: 1.5rem 2rem;
+  border-radius: 0.25rem;
 
+  margin-bottom: 2rem;
+
+  color: var(--dark-blue);
+}
+
+.card h3 {
+  font-weight: normal;
+  font-size: 1rem;
+}
+
+.card p {
+  font-size: 2rem;
+  /* line-height é a separação de linha, caso ocorra uma quebra de linha ele
+    terá uma quebra de linha
+  */
+  line-height: 3rem;
+
+  margin-top: 1rem;
+}
+
+.card.total {
+  background: #49AA26;
+  color: #FFF;
+}
 
 footer {
   text-align: center;
