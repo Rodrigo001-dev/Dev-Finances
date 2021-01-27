@@ -82,6 +82,15 @@ header {
 .card h3 {
   font-weight: normal;
   font-size: 1rem;
+
+  /* O comportamento padrão do HTML é um elento abaixo do outro mas o
+    comportamento do display flex por padão é um elemento do lado do outro(inline)
+  */
+  display: flex;
+  /* Eixo X(HOrizontal) */
+  align-items: center;
+  /* justify-content arruma o espaço entre os elementos horizontalmente */
+  justify-content: space-between;
 }
 
 .card p {
