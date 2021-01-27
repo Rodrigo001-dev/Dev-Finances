@@ -49,6 +49,24 @@ h2 {
   font-weight: normal;
 }
 
+a {
+  color: #49AA26;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #3DD705;
+}
+
+.button.new {
+  /* No display inline eu não consigo colocar margin-bottom mas no block eu
+    consigo mas o block pega o 100% de espaço do elemento e para isso exite o 
+    display inline-block que pega o display inline e o display block
+  */
+  display: inline-block;
+  margin-bottom: 0.8rem;
+}
+
 header {
   background: #2D4A22;
   padding: 2rem 0 10rem;
