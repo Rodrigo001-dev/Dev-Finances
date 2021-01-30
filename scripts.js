@@ -20,11 +20,21 @@ const transactions = [
 ];
 
 const Transaction = {
+  all: transactions,
+
+  add(transaction) {
+    // O push esta entrelassado a um array e o push vai colocar dentro do array
+    // alguma coisa
+    Transaction.all.push(transaction);
+
+    App.reload();
+  },
+
   incomes() {
     let income = 0;
     // para cada transação se for maior que zero vai somar os e colocar o valor
     // em uma variável
-    transactions.forEach(transaction => {
+    Transaction.all.forEach(transaction => {
       if (transaction.amount > 0) {
         // na primeira vez vai somar o income que é 0 e o amount, na segunda
         // vez que ele entrar aqui o income vai tger outro valor que vai ser o 
@@ -38,7 +48,7 @@ const Transaction = {
 
   expenses() {
     let expense = 0;
-    transactions.forEach(transaction => {
+    Transaction.all.forEach(transaction => {
       // se for menor que zero vai somar os valores e colocar em uma variavel
       if (transaction.amount < 0) {
         expense += transaction.amount;
@@ -95,6 +105,10 @@ const DOM = {
       .getElementById('totalDisplay')
       .innerHTML = Utils.formatCurrency(Transaction.total());
   },
+
+  clearTransactions() {
+    DOM.transactionsContainer.innerHTML = "";
+  },
 };
 
 const Utils = {
@@ -118,10 +132,28 @@ const Utils = {
   },
 };
 
-// para cada item dentro do array eu rodo a função addTransaction e passo 
-// transação do momento
-transactions.forEach((transaction) => {
-  DOM.addTransaction(transaction);
-});
+const App = {
+  init() {
+    // para cada item dentro do array eu rodo a função addTransaction e passo 
+    // transação do momento
+    Transaction.all.forEach(transaction => {
+      DOM.addTransaction(transaction);
+    });
 
-DOM.updateBalance();
+    DOM.updateBalance();
+  },
+
+  reload() {
+    DOM.clearTransactions();
+    App.init();
+  },
+};
+
+App.init();
+
+Transaction.add({
+  id: 20,
+  description: 'Alo',
+  amount: 200,
+  date: '23/01/2021'
+});
