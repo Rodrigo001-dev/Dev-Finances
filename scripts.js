@@ -13,10 +13,10 @@ const Modal = {
 };
 
 const transactions = [
-  { id: 1, description: 'Luz', amount: -50000, date: '23/01/2021' },
-  { id: 2, description: 'Website', amount: 500000, date: '23/01/2021' },
-  { id: 3, description: 'Internet', amount: -20000, date: '23/01/2021' },
-  { id: 4, description: 'App', amount: 200000, date: '23/01/2021' },
+  { description: 'Luz', amount: -50000, date: '23/01/2021' },
+  { description: 'Website', amount: 500000, date: '23/01/2021' },
+  { description: 'Internet', amount: -20000, date: '23/01/2021' },
+  { description: 'App', amount: 200000, date: '23/01/2021' },
 ];
 
 const Transaction = {
@@ -26,6 +26,15 @@ const Transaction = {
     // O push esta entrelassado a um array e o push vai colocar dentro do array
     // alguma coisa
     Transaction.all.push(transaction);
+
+    App.reload();
+  },
+
+  remove(index) {
+    // o splice é aplicado em arrays e o splice vai esperar o número no index
+    // dentro do array, ou seja, vai esperar qual a posição do array
+    // o segundo parâmetro é quantos elementos eu vou deletar
+    Transaction.all.splice(index, 1);
 
     App.reload();
   },
@@ -151,9 +160,4 @@ const App = {
 
 App.init();
 
-Transaction.add({
-  id: 20,
-  description: 'Alo',
-  amount: 200,
-  date: '23/01/2021'
-});
+Transaction.remove(0);
