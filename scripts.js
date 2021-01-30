@@ -79,12 +79,14 @@ const DOM = {
     //criando a tag tr
     const tr = document.createElement('tr');
     // inserindo o HTML dentro do tr
-    tr.innerHTML = DOM.innerHTMLTransaction(transaction);
+    tr.innerHTML = DOM.innerHTMLTransaction(transaction, index);
+    //o index é a posição do array que vai estar guardado no objeto
+    tr.dataset.index = index;
 
     DOM.transactionsContainer.appendChild(tr);
   },
 
-  innerHTMLTransaction(transaction) {
+  innerHTMLTransaction(transaction, index) {
     const CSSclass = transaction.amount > 0 ? "income" : "expense";
 
     const amount = Utils.formatCurrency(transaction.amount);
@@ -94,7 +96,7 @@ const DOM = {
       <td class="${CSSclass}">${amount}</td>
       <td class="date">${transaction.date}</td>
       <td>
-        <img src="./assets/minus.svg" alt="Remover transação">
+        <img onclick="Transaction.remove(${index})" src="./assets/minus.svg" alt="Remover transação">
       </td>
     `;
 
@@ -218,11 +220,12 @@ const App = {
   init() {
     // para cada item dentro do array eu rodo a função addTransaction e passo 
     // transação do momento
-    Transaction.all.forEach(transaction => {
-      DOM.addTransaction(transaction);
+    Transaction.all.forEach((transaction, index) => {
+      DOM.addTransaction(transaction, index);
     });
 
     DOM.updateBalance();
+
   },
 
   reload() {
