@@ -4,6 +4,7 @@ const Modal = {
       .querySelector('.modal-overlay')
       .classList.add('active')
   },
+
   close() {
     document
       .querySelector('.modal-overlay')
@@ -20,12 +21,37 @@ const transactions = [
 
 const Transaction = {
   incomes() {
-    // somar entradas
+    let income = 0;
+    // para cada transação se for maior que zero vai somar os e colocar o valor
+    // em uma variável
+    transactions.forEach(transaction => {
+      if (transaction.amount > 0) {
+        // na primeira vez vai somar o income que é 0 e o amount, na segunda
+        // vez que ele entrar aqui o income vai tger outro valor que vai ser o 
+        // valor do amount que ele tinha somado antes e ele vai somar esse valor
+        // com o valor de um novo amount
+        income += transaction.amount; 
+      };
+    });
+    return income;
   },
+
   expenses() {
-    // somar saídas
+    let expense = 0;
+    transactions.forEach(transaction => {
+      // se for menor que zero vai somar os valores e colocar em uma variavel
+      if (transaction.amount < 0) {
+        expense += transaction.amount;
+      };
+    });
+    return expense;
   },
-  total() {},
+
+  total() {
+    // o total é a soma de incomes e expenses porque o expenses já tem um sinal
+    // de negativo
+    return Transaction.incomes() + Transaction.expenses();
+  },
 };
 
 const DOM = {
@@ -38,6 +64,7 @@ const DOM = {
 
     DOM.transactionsContainer.appendChild(tr);
   },
+
   innerHTMLTransaction(transaction) {
     const CSSclass = transaction.amount > 0 ? "income" : "expense";
 
@@ -53,6 +80,12 @@ const DOM = {
     `;
 
     return html;
+  },
+
+  updateBalance() {
+    document.getElementById('incomeDisplay').innerHTML = Transaction.incomes();
+    document.getElementById('expenseDisplay').innerHTML = Transaction.expenses();
+    document.getElementById('totalDisplay').innerHTML = Transaction.total();
   },
 };
 
@@ -82,3 +115,5 @@ const Utils = {
 transactions.forEach((transaction) => {
   DOM.addTransaction(transaction);
 });
+
+DOM.updateBalance();
