@@ -139,6 +139,21 @@ const Utils = {
 
     return signal + value;
   },
+
+  formatAmount(value) {
+    value = Number(value) * 100;
+
+    return value;
+  },
+
+  formatDate(date) {
+    // o split vai pegar e tirar o - e separa os valores que estavam sendo 
+    // separados por - em 3 posições dentro de um array
+    const splittedDate = date.split("-");
+
+    // posição 2 está o dia,  posição 3 está o mês e a posição 0 está o ano
+    return `${splittedDate[2]}/${splittedDate[1]}/${splittedDate[0]}`
+  },
 };
 
 const Form = {
@@ -162,11 +177,37 @@ const Form = {
     }
   },
   
+  formatValues() {
+    let { description, amount, date } = Form.getValues();
+
+    amount = Utils.formatAmount(amount);
+
+    date = Utils.formatDate(date);
+
+    return {
+      description,
+      amount,
+      date
+    };
+  },
+
+  clearFields() {
+    Form.description.value = "";
+    Form.amount.value = "";
+    Form.date.value = "";
+  },
+
   submit(event) {
     event.preventDefault();
 
     try {
       Form.validadeFields();
+
+      const transaction = Form.formatValues();
+      Transaction.add(transaction);
+      // apagar dados
+      Form.clearFields();
+      Modal.close();
     } catch (error) {
       alert(error.message)
     }
