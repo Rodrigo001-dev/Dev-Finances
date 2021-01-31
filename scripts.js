@@ -19,8 +19,27 @@ const transactions = [
   { description: 'App', amount: 200000, date: '23/01/2021' },
 ];
 
+const Storage = {
+  get() {
+    // o JSON.parse vai transformar de string que esta sendo salvo no
+    // localStorage para o array
+    // se não tiver a chave dev.finances:transactions vai retornar um array
+    // vazio([])
+    return JSON.parse(localStorage.getItem("dev.finances:transactions")) 
+      ||
+    [];
+  },
+
+  set(transactions) {
+    // no localStorage ele armazena somente string por isso o JSON.stringify
+    // vai transformar um array em uma string
+    localStorage.
+      setItem("dev.finances:transactions", JSON.stringify(transactions));
+  },
+};
+
 const Transaction = {
-  all: transactions,
+  all: Storage.get(),
 
   add(transaction) {
     // O push esta entrelassado a um array e o push vai colocar dentro do array
@@ -226,6 +245,7 @@ const App = {
 
     DOM.updateBalance();
 
+    Storage.set(Transaction.all);
   },
 
   reload() {
