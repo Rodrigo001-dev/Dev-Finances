@@ -1,0 +1,35 @@
+/* o sr.only vai manter o conteúdo visível somente para os leitores de tela */
+.sr-only {
+  /* position: absolute é sempre relativo ao ao elemento pai que ele está 
+    Se o elemento pai tiver um position relative o elemento filho que receber
+    o position absolute vai ficar na frente de outros elementos irmãos
+  */
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+.container {
+  /* se 90vw(90 de tudo o que esta sendo visualizado) for menor que 800px
+    então ele vai colocar 90% de largura do viewport da tela se não ele vai
+    colocar 800px 
+  */
+  width: min(90vw, 800px);
+
+/* margin: auto vai igualar as margens proporcionalmente horizontal */
+  margin: auto;
+}
+
+h2 {
+  margin-top: 3.2rem;
+  margin-bottom: 0.8rem;
+  color: var(--dark-blue);
+
+  font-weight: normal;
+}

@@ -1,0 +1,61 @@
+#balance {
+  margin-top: -8rem;
+  animation-duration: 3s;
+  animation-name: slidein;
+}
+
+@keyframes slidein {
+  from {
+    margin-left: 100%;
+    width: 300%
+  }
+
+  to {
+    margin-left: 0%;
+    width: 100%;
+  }
+}
+
+#balance h2 {
+  color: #FFF;
+  margin-top: 0;
+}
+
+.card {
+  background: #FFF;
+  padding: 1.5rem 2rem;
+  border-radius: 0.25rem;
+
+  margin-bottom: 2rem;
+
+  color: var(--dark-blue);
+}
+
+.card h3 {
+  font-weight: normal;
+  font-size: 1rem;
+
+  /* O comportamento padrão do HTML é um elento abaixo do outro mas o
+    comportamento do display flex por padão é um elemento do lado do outro(inline)
+  */
+  display: flex;
+  /* Eixo X(HOrizontal) */
+  align-items: center;
+  /* justify-content arruma o espaço entre os elementos horizontalmente */
+  justify-content: space-between;
+}
+
+.card p {
+  font-size: 2rem;
+  /* line-height é a separação de linha, caso ocorra uma quebra de linha ele
+    terá uma quebra de linha
+  */
+  line-height: 3rem;
+
+  margin-top: 1rem;
+}
+
+.card.total {
+  background: var(--green);
+  color: #FFF;
+}

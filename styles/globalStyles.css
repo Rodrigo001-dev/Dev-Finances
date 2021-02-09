@@ -1,0 +1,60 @@
+:root {
+  --dark-blue: #363F5F;
+  --green: #49AA26;
+  --light-green: #3DD705;
+  --red: #E92929;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 93.75%; /* 15px */
+}
+
+body {
+  background: #f0f2f5;
+  font-family: 'Poppins', sans-serif;
+}
+
+header {
+  background: #2D4A22;
+  padding: 2rem 0 10rem;
+  text-align: center;
+}
+
+#logo {
+  color: #FFF;
+  font-weight: 200;
+}
+
+footer {
+  text-align: center;
+  padding: 4rem 0 2rem;
+  color: var(--dark-blue);
+
+  opacity: 0.6;
+
+  animation-duration: 7s;
+  animation-name: slidein;
+}
+
+@media (min-width: 800px) {
+  html {
+    font-size: 87.5%;
+  }
+
+  #balance {
+    /* com o display grid eu posso manipular os elementos tanto verticalmente
+      quanto horizontalmente
+    */
+    display: grid;
+    /* no grid tem uma unidade de mediada chamada fr(fração) */
+    grid-template-columns: repeat(3, 1fr);
+    /* gap é o espaço entre as colunas */
+    gap: 2rem;
+  }
+}
