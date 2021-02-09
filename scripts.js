@@ -12,13 +12,6 @@ const Modal = {
   }
 };
 
-const transactions = [
-  { description: 'Luz', amount: -50000, date: '23/01/2021' },
-  { description: 'Website', amount: 500000, date: '23/01/2021' },
-  { description: 'Internet', amount: -20000, date: '23/01/2021' },
-  { description: 'App', amount: 200000, date: '23/01/2021' },
-];
-
 const Storage = {
   get() {
     // o JSON.parse vai transformar de string que esta sendo salvo no
@@ -255,5 +248,3 @@ const App = {
 };
 
 App.init();
-
-Transaction.remove(0);
