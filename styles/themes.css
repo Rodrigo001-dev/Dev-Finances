@@ -36,10 +36,10 @@
   background-color: #202024;
 }
 .theme-dark header {
-  background-color: #121214;
+  background-color: #191622;
 }
 .theme-dark .card {
-  background-color: #1c1c1c;
+  background-color: #7159c1;
   color: #f0f0f5;
 }
 .theme-dark .card.total {
@@ -53,8 +53,13 @@
   background-color: #1c1c1c;
 }
 .theme-dark #transaction #data-table tbody td {
-  background-color: #1c1c1c;
+  background-color: #191622;
 }
+
+.theme-dark #transaction #data-table tbody td:first-child {
+  color: #FFF;
+}
+
 .theme-dark #transaction #data-table td.descritpion {
   color: #f0f0f5;
 }
@@ -63,7 +68,7 @@
 }
 .theme-dark #form form input {
   color: #f0f0f5;
-  background-color: #1c1c1c;
+  background-color: #7159c1;
 }
 .theme-dark #form .input-group small {
   color: #f0f0f5;
@@ -72,5 +77,9 @@
   color: #f0f0f5;
 }
 .theme-dark .modal-overlay .modal {
-  background-color: #202024;
+  background-color: #191622;
+}
+
+.theme-dark .modal-overlay .modal .form h2 {
+  color: #FFF;
 }
