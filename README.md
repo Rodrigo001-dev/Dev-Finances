@@ -1,6 +1,6 @@
 ## 💻 Projeto
 
-Esse projeto foi desenvolvido para revisar os conceitos básicos de desenvolvimento web.
+Esse projeto foi desenvolvido na maratona Discover da Rocketseat para revisar os conceitos básicos de desenvolvimento web.
 Utilizando HTML, CSS e JavaScript.
 
 ## Link do Layout no Figma
